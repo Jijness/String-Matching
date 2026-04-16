@@ -1,3 +1,25 @@
 ﻿STT,Nhóm,Thuật toán,Thời gian (ms),Số phép so sánh
-1,1,Knuth-Morris-Pratt,48.000,5738906
-2,1,Morris-Pratt,28.000,5811862
+1,1,DFA Automaton,20.000,0
+2,1,Karp-Rabin,9.000,12374
+3,1,Knuth-Morris-Pratt,51.500,5738906
+4,1,Morris-Pratt,40.000,5811862
+5,1,Shift-Or,7.000,0
+6,1,Simon,43.000,5740613
+7,2,Boyer-Moore,16.500,1207850
+8,2,Horspool,16.000,1476715
+9,2,Quick Search,15.500,1516468
+10,2,Reverse Factor,11.500,0
+11,2,Tuned Boyer-Moore,14.500,378582
+12,2,Zhu-Takaoka,7.000,900848
+13,3,Apostolico-Crochemore,32.000,4525963
+14,3,Colussi,35.500,4566845
+15,3,Galil-Giancarlo,21.500,4568323
+16,3,Galil-Seiferas,57.500,12613948
+17,3,Ordered Alphabet,36.500,6724095
+18,3,Two Way,29.000,4641889
+19,4,Maximal Shift,8.500,1340329
+20,4,Not So Naive,28.500,4985320
+21,4,Optimal Mismatch,15.500,1567484
+22,4,Raita,13.500,1464876
+23,4,Skip Search,25.500,1835116
+24,4,Smith,14.500,1213613
