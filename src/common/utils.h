@@ -10,17 +10,17 @@
 extern unsigned long long comparisons;
 
 // Reset bộ đếm
-void reset_comparisons();
+void reset_comparisons(void);
 
 // Macro so sánh có đếm (dùng trong toàn bộ thuật toán)
 #define COMPARE(a, b) (++comparisons, (a) == (b))
 
-// Định nghĩa kiểu con trỏ hàm tìm kiếm
-typedef void (*SearchFunc)(char*, int, char*, int);
+// Định nghĩa kiểu con trỏ hàm tìm kiếm (có tham số verbose)
+typedef void (*SearchFunc)(char*, int, char*, int, int);
 
 // Hàm đo thời gian (ms) và số so sánh cho một lần chạy
 void run_once(SearchFunc func, char *pattern, int m, char *text, int n,
-              double *time_ms, unsigned long long *comps);
+              double *time_ms, unsigned long long *comps, int verbose);
 
 // Đọc file vào buffer (nhớ free)
 char* read_file(const char *filename, int *length);

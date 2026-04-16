@@ -1,31 +1,25 @@
 #include "../common/utils.h"
 #include <stdlib.h>
 #include <stdio.h>
-void preMp(char *x, int m, int *mpNext) {
-    int i = 0, j = -1;
-    mpNext[0] = -1;
-    while (i < m) {
-        while (j > -1 && !COMPARE(x[i], x[j]))
-            j = mpNext[j];
-        i++; j++;
-        mpNext[i] = j;
-    }
+#include <string.h>
+#define ASIZE 256
+static void preQsBc(char *x, int m, int qsBc[]) {
+    int i;
+    for (i = 0; i < ASIZE; ++i) qsBc[i] = m + 1;
+    for (i = 0; i < m; ++i) qsBc[(unsigned char)x[i]] = m - i;
 }
-void MP(char *x, int m, char *y, int n, int verbose) {
-    int i, j, *mpNext = (int*)malloc((m + 1) * sizeof(int));
-    if (!mpNext) return;
-    preMp(x, m, mpNext);
-    i = j = 0;
-    while (j < n) {
-        while (i > -1 && !COMPARE(x[i], y[j]))
-            i = mpNext[i];
-        i++; j++;
-        if (i >= m) {
-            if (verbose) printf("Found at: %d\n", j - i);
-            i = mpNext[i];
+void QS(char *x, int m, char *y, int n, int verbose) {
+    int j, qsBc[ASIZE];
+    preQsBc(x, m, qsBc);
+    j = 0;
+    while (j <= n - m) {
+        int k;
+        for (k = 0; k < m && COMPARE(x[k], y[j + k]); ++k);
+        if (k == m) {
+            if (verbose) printf("Found at: %d\n", j);
         }
+        j += qsBc[(unsigned char)y[j + m]];
     }
-    free(mpNext);
 }
 int main(int argc, char *argv[]) {
     if (argc < 4) {
@@ -40,7 +34,7 @@ int main(int argc, char *argv[]) {
     if (verbose) printf("Pattern: %s\nText length: %d\n", pattern, tlen);
     double time_ms; unsigned long long comps;
     for (int r = 0; r < repeat; r++) {
-        run_once(MP, pattern, plen, text, tlen, &time_ms, &comps, verbose);
+        run_once(QS, pattern, plen, text, tlen, &time_ms, &comps, verbose);
         printf("%f,%llu\n", time_ms, comps);
     }
     free(pattern); free(text);

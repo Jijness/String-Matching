@@ -28,11 +28,11 @@ ALGO_NAMES = {
     "simon": "Simon",
     # 
     "boyer_moore": "Boyer-Moore",
-    "turbo_bm": "Turbo-BM",
-    "apostolico_giancarlo": "Apostolico-Giancarlo",
-    "reverse_colussi": "Reverse Colussi",
+    "horspool": "Horspool",
+    "quick_search": "Quick Search",
+    "tuned_bm": "Tuned Boyer-Moore",
+    "zhu_takaoka": "Zhu-Takaoka",
     "reverse_factor": "Reverse Factor",
-    "turbo_reverse_factor": "Turbo Reverse Factor",
     # 
     "colussi": "Colussi",
     "galil_giancarlo": "Galil-Giancarlo",
@@ -42,11 +42,11 @@ ALGO_NAMES = {
     "ordered_alphabet": "Ordered Alphabet",
     # 
     "not_so_naive": "Not So Naive",
-    "horspool": "Horspool",
-    "quick_search": "Quick Search",
-    "tuned_bm": "Tuned Boyer-Moore",
     "smith": "Smith",
-    "raita": "Raita"
+    "raita": "Raita",
+    "optimal_mismatch": "Optimal Mismatch",
+    "maximal_shift": "Maximal Shift",
+    "skip_search": "Skip Search"
 }
 
 def run_executable(exe_path, repeat=2):

@@ -2,16 +2,16 @@
 
 unsigned long long comparisons = 0;
 
-void reset_comparisons() {
+void reset_comparisons(void) {
     comparisons = 0;
 }
 
 void run_once(SearchFunc func, char *pattern, int m, char *text, int n,
-              double *time_ms, unsigned long long *comps) {
+              double *time_ms, unsigned long long *comps, int verbose) {
     clock_t start, end;
     reset_comparisons();
     start = clock();
-    func(pattern, m, text, n);
+    func(pattern, m, text, n, verbose);
     end = clock();
     *time_ms = ((double)(end - start) / CLOCKS_PER_SEC) * 1000.0;
     *comps = comparisons;
